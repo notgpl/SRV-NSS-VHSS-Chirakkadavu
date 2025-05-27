@@ -86,6 +86,12 @@ h6 {
   left: 0;
 }
 
+@media (max-width: 1200px) {
+  .header {
+    background-color: #ffffff; /* Set a solid background */
+  }
+}
+
 .header .header-container {
   max-width: 100%;
   width: 100%;
