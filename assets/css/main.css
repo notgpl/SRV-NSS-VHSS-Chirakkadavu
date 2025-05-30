@@ -1,4 +1,6 @@
-
+/*-------------------------------------------------------------------------
+Designed by Adarsh.lyy https://offernext.vercel.app/ {Insta id: adarsh.lyy}
+-------------------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Montserrat",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -6,27 +8,27 @@
   --nav-font: "Montserrat",  sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* Global Colors*/
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0d83fd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ffffff; 
+  --default-color: #212529; 
+  --heading-color: #2d465e; 
+  --accent-color: #0d83fd; 
+  --surface-color: #ffffff; 
+  --contrast-color: #ffffff;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Nav Menu Colors */
 :root {
-  --nav-color: #212529;  /* The default color of the main navmenu links */
-  --nav-hover-color: #0d83fd; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #0d83fd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #212529;  
+  --nav-hover-color: #0d83fd; 
+  --nav-mobile-background-color: #ffffff; 
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #212529;
+  --nav-dropdown-hover-color: #0d83fd; 
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* Color Presets */
 
 .light-background {
   --background-color: #f3f9ff;
@@ -47,7 +49,7 @@
 }
 
 /*--------------------------------------------------------------
-# General Styling & Shared Classes
+# General Styling
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
@@ -77,18 +79,18 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Global Header
+# Header
 --------------------------------------------------------------*/
 .header {
   width: 100%;
-  position: fixed; /* or relative/absolute depending on your layout */
+  position: fixed;
   top: 0;
   left: 0;
 }
 
 @media (max-width: 1200px) {
   .header {
-    background-color: #ffffff; /* Set a solid background */
+    background-color: #ffffff; 
     box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
 
   }
@@ -98,12 +100,13 @@ h6 {
   max-width: 100%;
   width: 100%;
   padding: 5px 110px;
-  box-sizing: border-box; /* ensures padding doesn't cause overflow */
+  box-sizing: border-box; 
 }
 
 
 .scrolled .header .header-container {
-  background: color-mix(in srgb, var(--surface-color), transparent 5%);
+  background: color-mix(in srgb, var(--surface-color), transparent 0%);
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo {
@@ -123,23 +126,56 @@ h6 {
   color: var(--heading-color);
 }
 
+/* Base .btn-getstarted style */
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
-  color: var(--contrast-color);
+  font-size: 16px;                 
+  padding: 8px 20px;               
+  color: var(--contrast-color);    
   background: var(--accent-color);
-  font-size: 14px;
-  padding: 8px 20px;
-  margin: 0 0 0 px;
-  margin-left: 0px;
-  border-radius: 50px;
+  border-radius: 50px;             
   transition: 0.3s;
+  font-weight: 800;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  outline: none;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  border: 1px solid var(--accent-color) ;
 }
 
+/* Hover state with subtle transparent effect */
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
+  color: black;
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
+
+/* Add animated background effect */
+.header .btn-getstarted::before {
+  background: white;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+  transition: all 0.6s ease;
+  width: 100%;
+  height: 0%;
+}
+
+.header .btn-getstarted:hover::before {
+  height: 380%;
+}
+
+
 
 @media (max-width: 1200px) {
   .header {
@@ -403,10 +439,6 @@ h6 {
   }
 }
 
-
-
-
-
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
@@ -599,7 +631,6 @@ section,
   font-size: 1.25rem;
 }
 
-/* start buttons style */
 .btn,
 .btn-sec {
   border: 1px solid var(--brand-color);
@@ -705,7 +736,7 @@ section,
   height: auto;
 }
 
-.hero .customers-badge {
+.hero .students-badge {
   position: absolute;
   bottom: 10px;
   right: 30px;
@@ -718,13 +749,13 @@ section,
   will-change: transform;
 }
 
-.hero .customers-badge .customer-avatars {
+.hero .students-badge .students-avatars {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.hero .customers-badge .avatar {
+.hero .students-badge .avatar {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -732,11 +763,11 @@ section,
   margin-left: -8px;
 }
 
-.hero .customers-badge .avatar:first-child {
+.hero .students-badge .avatar:first-child {
   margin-left: 0;
 }
 
-.hero .customers-badge .avatar.more {
+.hero .students-badge .avatar.more {
   background-color: var(--accent-color);
   color: var(--contrast-color);
   display: flex;
@@ -746,13 +777,13 @@ section,
   font-weight: 600;
 }
 
-.hero .customers-badge p {
+.hero .students-badge p {
   font-size: 0.875rem;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
 @media (max-width: 992px) {
-  .hero .customers-badge {
+  .hero .students-badge {
     position: static;
     margin: 1rem auto;
     max-width: 250px;
@@ -836,7 +867,6 @@ section,
     transform: translateY(0);
   }
 }
-
 
 /*--------------------------------------------------------------
 # Latest News Section
@@ -1116,7 +1146,7 @@ section,
   height: 100%;
   z-index: 999;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
-  transition: transform 300ms ease-in-out, color 300ms ease-in-out; /* Add transform transition for zoom effect */
+  transition: transform 300ms ease-in-out, color 300ms ease-in-out; 
 }
 .contact-map {
   width: 100%;
@@ -1125,12 +1155,12 @@ section,
 }
 .box.box-hover:hover,
 .box.box-hover:focus {
-  transform: scale(0.99); /* Slight zoom-in effect */
+  transform: scale(0.99);
   background-color: #eff0ef;
 }
 
 .box.box-hover:hover > p {
-  color: #eff0ef /* Optional: change paragraph color on hover */
+  color: #eff0ef;
 }
 .title-2 {
   color: var(--heading-color);
@@ -1285,11 +1315,9 @@ section,
   background-color: transparent;
 }
 
-/* Hover: change text color to white to contrast with the black ::before */
 .call-to-action-2 .btn-sec:hover {
   color: rgb(0, 0, 0);
 }
-
 
 .call-to-action-2 .btn::before,
 .call-to-action-2 .btn-sec::before {
@@ -1575,149 +1603,11 @@ section,
   border-color: var(--accent-color);
 }
 
-
 /*--------------------------------------------------------------
-# Service Details Section
+# SSLC-2025 Section
 --------------------------------------------------------------*/
-.service-details .service-box {
-  background-color: var(--surface-color);
-  padding: 20px;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-}
 
-.service-details .service-box+.service-box {
-  margin-top: 30px;
-}
-
-.service-details .service-box h4 {
-  font-size: 20px;
-  font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.service-details .services-list {
-  background-color: var(--surface-color);
-}
-
-.service-details .services-list a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  margin-top: 15px;
-  transition: 0.3s;
-}
-
-.service-details .services-list a:first-child {
-  margin-top: 0;
-}
-
-.service-details .services-list a i {
-  font-size: 16px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .services-list a.active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-}
-
-.service-details .services-list a.active i {
-  color: var(--contrast-color);
-}
-
-.service-details .services-list a:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a {
-  color: var(--default-color);
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.service-details .download-catalog a:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.service-details .download-catalog a:last-child {
-  padding-bottom: 0;
-}
-
-.service-details .download-catalog a i {
-  font-size: 24px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a:hover {
-  color: var(--accent-color);
-}
-
-.service-details .help-box {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  margin-top: 30px;
-  padding: 30px 15px;
-}
-
-.service-details .help-box .help-icon {
-  font-size: 48px;
-}
-
-.service-details .help-box h4,
-.service-details .help-box a {
-  color: var(--contrast-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-
-    .students {
+   .students {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -1752,10 +1642,6 @@ section,
     }
 
 
-
-/*--------------------------------------------------------------
-# SSLC-2025 Section
---------------------------------------------------------------*/
 .SSLC-2025 .nav-tabs {
   border: 0;
   background-color: color-mix(in srgb, var(--default-color), transparent 96%);
@@ -1867,3 +1753,7 @@ section,
 .SSLC-2025 .tab-pane p:last-child {
   margin-bottom: 0;
 }
+
+/*-------------------------------------------------------------------------
+Designed by Adarsh.lyy https://offernext.vercel.app/ {Insta id: adarsh.lyy}
+-------------------------------------------------------------------------*/
